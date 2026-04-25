@@ -1,0 +1,27 @@
+# Environment variables — NUNCA subir al repo
+.env
+**/.env
+
+# Dependencias Node.js
+node_modules/
+**/node_modules/
+
+# Cobertura de tests
+coverage/
+**/coverage/
+
+# Terraform — estado local y variables con secretos
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/*.tfvars
+!terraform/*.tfvars.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
