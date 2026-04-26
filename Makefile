@@ -1,4 +1,4 @@
-.PHONY: help dev dev-down build push-ecr deploy-k8s destroy-k8s tf-init tf-plan tf-apply tf-destroy
+.PHONY: help install dev dev-down build push-ecr deploy-k8s destroy-k8s tf-init tf-plan tf-apply tf-destroy
 
 # Variables — cámbialas por los tuyos antes de usar
 AWS_REGION     ?= us-east-1
@@ -7,6 +7,10 @@ CLUSTER_NAME   ?= scalable-microservices
 
 help: ## Muestra esta ayuda
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+install: ## Instala dependencias de todos los servicios
+	npm install --prefix services/users-service
+	npm install --prefix services/products-service
 
 # ── Desarrollo local ──────────────────────────────────────────────────────────
 
